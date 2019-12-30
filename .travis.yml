@@ -1,3 +1,5 @@
+language: generic 
+
 sudo: required
 services:
     - docker
@@ -8,7 +10,7 @@ before_install:
 
 
 script:
-    - docker run talyoffe/docker-react npm run test -- --coverage
+    - docker run -e CI=true talyoffe/docker-react npm run test -- --coverage
 
 
 
