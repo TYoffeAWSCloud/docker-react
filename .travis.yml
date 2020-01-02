@@ -12,5 +12,12 @@ before_install:
 script:
     - docker run -e CI=true talyoffe/docker-react npm run test -- --coverage
 
-
-
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "docker-react"
+  env: "DockerReact-en"
+  bucket_name: "elasticbeanstalk-us-west-2-022585997406"
+  bucket_path: "docker-react"
+  on:
+    branch: master
